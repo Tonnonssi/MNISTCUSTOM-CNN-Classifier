@@ -19,38 +19,26 @@ MNIST 데이터 셋을 이용하여 CNN 신경망 학습, 숫자 분류기 제�
 ## Result
 ### 01. MNIST로 학습시킨 신경망
 커스텀 데이터는 MNIST 데이터 셋과 달리, 숫자의 크기가 제각각이기 때문에 제대로된 예측이 되지 않았다. 이 문제를 1차적으로 해결하기 위해 숫자 영역을 인식해 확대하는 방식의 스케일링을 적용했다. 
-![softmax_unimproved.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/75f4cab0-3036-40c4-8a5e-c07a31ae06b1/softmax_unimproved.png)
-
-![softmax_improved.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f3ed7ac6-dca5-49e8-896c-d883b6fcaf2e/softmax_improved.png)
-
+![image](https://github.com/Tonnonssi/MNISTCUSTOM-CNN-Classifier/assets/126959470/30258b11-5649-418f-8591-88f2d952fa24)
+![image](https://github.com/Tonnonssi/MNISTCUSTOM-CNN-Classifier/assets/126959470/b726eef1-e33a-4d0a-8b76-8daa548edbf3)
 
 ### 02. 확대 방식을 바꾼 숫자 분류기
 회전, 확대와 같은 증강기법을 적용하는 과정에서 데이터 타입 변환에 따른 스택오버플로우 문제가 발생한다. 이 문제를 해결하자, 1을 잘 인식하지 못하던 기존의 문제가 해결되는 모습을 보였다. 
 
-![확대 정규화를 적용하지 않은 예측 모델](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e4a587ed-9b72-4297-8467-9fbf22fce6cb/unimproved_01.png)
-
-확대 정규화를 적용하지 않은 예측 모델
-
-![리팩토링한 확대 정규화를 적용한 모델](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1e3b2999-edd4-4124-b7d2-c8d436649075/improved_01.png)
-
-리팩토링한 확대 정규화를 적용한 모델
+![image](https://github.com/Tonnonssi/MNISTCUSTOM-CNN-Classifier/assets/126959470/11f9bd62-5500-4fbf-8c2f-bd9fa6581a5e)
+![image](https://github.com/Tonnonssi/MNISTCUSTOM-CNN-Classifier/assets/126959470/b45e830b-712a-4f0b-98c8-bfd450ab5bbe)
 
 
 ### 03. MNIST+Custom 데이터로 학습시킨 모델
 불규칙한 사이즈의 데이터와 스케일링된 데이터를 전부 같이 학습시킨다면, 추가적인 스케일링 없이도 작동되는 분류기를 만들 수 있지 않을까란 생각을 했다. 결과는 다음과 같다. 여러 증강법을 사용했음에도 불구하고, 모든 예외를 처리하기엔 데이터셋이 부족했는지, 오히려 성능이 떨어진 모습을 보였다.
 
-![MNIST데이터만으로 학습한 모델](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b6af8080-03e8-4b8d-9620-457a14b5ec3a/unimproved_01.png)
-
-MNIST데이터만으로 학습한 모델
-
-![불규칙한 데이터와 같이 학습시킨 모델](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/793f8a02-8642-4d5d-bb77-363972bdf23a/unimproved_heatmap_02.png)
-
-불규칙한 데이터와 같이 학습시킨 모델
-
-![MNIST만으로 학습 + 스케일링 적용](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/30343f2d-dd7f-4508-b75f-4cc712024f7f/improved_01.png)
-
+MNIST로만 학습한 모델
+![image](https://github.com/Tonnonssi/MNISTCUSTOM-CNN-Classifier/assets/126959470/5b3fdb5a-ddac-43f8-8f27-20b3cdbf2379)
+불규칙한 커스텀 데이터와 함께 학습시킨 모델
+![image](https://github.com/Tonnonssi/MNISTCUSTOM-CNN-Classifier/assets/126959470/7ea59e04-7a96-4588-b911-96eb3c87b9ce)
 MNIST만으로 학습 + 스케일링 적용
+![image](https://github.com/Tonnonssi/MNISTCUSTOM-CNN-Classifier/assets/126959470/373681fb-9c6c-4997-a155-0b31e633ea75)
+불규칙한 커스텀 데이터와 함께 학습 + 스케일링 적용
+![image](https://github.com/Tonnonssi/MNISTCUSTOM-CNN-Classifier/assets/126959470/5aaa573e-49e8-4a3e-949d-bf02b2804b28)
 
-![불규칙한 데이터와 같이 학습 + 스케일링](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/80f3327b-d8be-492d-93d1-eb0465dd05cc/improved_heatmap_02.png)
 
-불규칙한 데이터와 같이 학습 + 스케일링
