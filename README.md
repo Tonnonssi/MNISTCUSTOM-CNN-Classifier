@@ -17,4 +17,4 @@ MNIST 데이터 셋을 이용하여 CNN 신경망 학습, 숫자 분류기 제�
 **`01. HandWritingClassifier_final`** : 가장 성능이 좋은 신경망을 적용한 숫자 분류기+시각화 코드 포함
 
 ## Result
-
+![image](https://github.com/Tonnonssi/MNISTCUSTOM-CNN-Classifier/assets/126959470/f037ef21-1948-43b9-ac9f-b84923349ae4)
