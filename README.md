@@ -14,7 +14,7 @@ MNIST 데이터 셋을 이용하여 CNN 신경망 학습, 숫자 분류기 제�
 
 **`05. trainercode.ipynb`** : 개인데이터셋, MNIST를 이용해 재학습하는 코드
 
-**`01. HandWritingClassifier_final`** : 가장 성능이 좋은 신경망을 적용한 숫자 분류기+시각화 코드 포함
+**`06. HandWritingClassifier_final`** : 가장 성능이 좋은 신경망을 적용한 숫자 분류기+시각화 코드 포함
 
 ## Result
 ### 01. MNIST로 학습시킨 신경망
